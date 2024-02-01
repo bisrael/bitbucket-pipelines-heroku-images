@@ -13,3 +13,16 @@ Example Dockerfile:
 # We highly suggest you pin your FROM to a specific verson of this image
 FROM blakeisrael/heroku-ci-ruby-3.2.1-node
 ```
+
+## Building an Image
+
+`cd` into the appropriate directory.
+
+`docker build . -t yourdockername/some-tag-name`
+
+Push it to docker:
+
+`docker push yourdockername/some-tag-name`
+
+You can then `FROM yourdockername/some-tag-name` in your own other Dockerfile OR
+you can use it as the base in your `bitbucket-pipelines.yml` with `image: yourdockername/some-tag-name`.
