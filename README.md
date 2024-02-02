@@ -18,11 +18,15 @@ FROM blakeisrael/heroku-ci-ruby-3.2.1-node
 
 `cd` into the appropriate directory.
 
-`docker build . -t yourdockername/some-tag-name`
+Build the image and tag it (replace `dockerhubname` with your docker hub username or orgname:
+
+`docker build . -t dockerhubname/${PWD##*/}`
+
+`${PWD##*/}` will be replaced with the current directory name.
 
 Push it to docker:
 
-`docker push yourdockername/some-tag-name`
+`docker push dockerhubname/${PWD##*/}`
 
-You can then `FROM yourdockername/some-tag-name` in your own other Dockerfile OR
-you can use it as the base in your `bitbucket-pipelines.yml` with `image: yourdockername/some-tag-name`.
+You can then `FROM dockerhubname/some-tag-name` in your own other Dockerfile OR
+you can use it as the base in your `bitbucket-pipelines.yml` with `image: dockerhubname/some-tag-name`.
