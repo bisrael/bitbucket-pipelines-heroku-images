@@ -18,7 +18,7 @@ FROM blakeisrael/heroku-ci-ruby-3.2.1-node
 
 `cd` into the appropriate directory.
 
-Build the image and tag it (replace `dockerhubname` with your docker hub username or orgname:
+Build the image and tag it (replace `dockerhubname` with your docker hub username or orgname):
 
 `docker build . -t dockerhubname/${PWD##*/}`
 
@@ -30,3 +30,9 @@ Push it to docker:
 
 You can then `FROM dockerhubname/some-tag-name` in your own other Dockerfile OR
 you can use it as the base in your `bitbucket-pipelines.yml` with `image: dockerhubname/some-tag-name`.
+
+## I just want to use it
+
+These images are all built and uploaded to my docker hub: https://hub.docker.com/u/blakeisrael
+
+They are used (or were used) in the real world every day. The most recent ruby versions will likely be maintained decently enough.
